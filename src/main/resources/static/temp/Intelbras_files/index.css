@@ -1,0 +1,225 @@
+﻿@charset "utf-8";
+/* CSS Document */
+.main-subnav,.main-nav-separator{
+    display: none;
+}
+.main-subnav-time{
+    display: none;
+}
+.pre-minwidth {
+    min-width:1000px;
+    width:100%;
+    width:expression((documentElement.clientWidth < 1000)? "1000px" : "auto");
+	background: none repeat scroll 0pt 0pt rgb(55, 55, 55); 
+}
+.pre-allBackground-color {
+    background: none repeat scroll 0 0 #373737;
+}
+.pos_abs{ 
+	position:absolute; 
+	top:69px; 
+}
+.pre-everyBackground-color {
+    background-color:#373737;
+}
+/*LOADING*/
+.J_load_dialog {
+    display: none;
+    position: relative;
+    width: 100%;
+    _width: 1000px;
+    height: 100%;
+    _height: 600px;
+    min-width: 1000px;
+    min-height: 600px;
+    z-index: 1000;
+    background: #373737;
+    -moz-opacity: 0.8;
+    opacity: 0.8;
+    filter: alpha(opacity=80);
+    cursor: wait;
+}
+.J_load_dialog .J_load_p {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    line-height: 30px;
+    font-size: 24px;
+    font-weight: bold;
+    color: #FFF;
+    cursor:wait;
+}
+/*Login*/
+.login { 
+    position: absolute; 
+    left: 0; 
+    /*top: -10000px;*/
+    top: 50%;
+    width: 100%; 
+    height: 317px; 
+    margin-top: -160px; 
+    text-align: center;
+}
+.login-container { 
+    width: 100%; 
+    height: 317px;
+}
+.login-content { 
+    width: 484px;
+    height: 317px;
+    margin: 0 auto;
+}
+.login-logo { 
+    width: 474px;
+    height: 56px;
+    padding-top: 25px;
+    margin: 0 auto;
+}
+.login-inputbox { 
+    width: 484px; 
+    margin-top: 12px;
+}
+.login-inputbox-ldap {
+    width: 484px;
+    margin-top: 20px;
+}
+.login-input-item{
+     width: 100%;
+     height: 30px;
+     margin-bottom: 5px;
+     text-align: left;
+}
+.login-input-title {
+    float: left;
+    display: block;
+    width: 180px;
+    height: 30px;
+    margin-right: 10px;
+    line-height: 30px;
+    text-align: right;
+}
+.login-btnbox {
+    padding-left: 190px;
+    margin-top: 5px;
+    text-align: left;    
+}
+.custom-btnbox{
+    display: none;
+}
+.general-btnbox{
+    display: block;
+}
+
+/*MAIN-CONTENT*/	
+.main-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: -10000px;
+    min-width:1150px;
+    /*min-height: 835px;*/
+    overflow-x:hidden;
+}
+
+/*OCX*/
+.main-ocx {
+	position: absolute;
+	top: -10000px;
+	width: 800px;
+	height: 800px;
+}
+.main-bg-noocx {
+	position: relative;
+	width: 100%;
+	height: 100%;
+	text-align: center;
+}
+
+.main-center-setup,
+.main-center-setup:hover {
+	position: relative;
+	top: 45%;
+	text-decoration:underline;
+	font-size: 17px;
+	color: #FFFFFF;
+	cursor: pointer;
+}
+.main-center-setup:hover
+ {
+	color: #FFB80F;
+}
+
+/*MENU*/	
+.main-head {
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 56px;
+    z-index: 60;
+}
+.main-logo {
+    position: absolute; 
+    left: 5px;
+    top: 0;
+    width: 165px;
+    height: 56px;
+}
+.main-logo span{
+    display: none;
+}
+.main-nav {
+    position: absolute; 
+    left: 172px; 
+    bottom: 0;
+    font-size: 0;
+}
+.main-nav li {
+	float:left;
+    width: 117px; 
+    height: 30px;
+}
+.main-nav-item {
+    display: block;
+    width: 120px;
+    height: 30px;
+    line-height: 30px;
+    background-position: -90px -30px;
+    background-repeat: no-repeat;
+    text-align: center;
+    font-size: 14px;
+    font-weight: bold;
+}
+.main-nav-item:hover,
+.main-nav-item-current {
+    background-position: -90px 0;
+}
+.main-nav-alarm {
+    position: relative; 
+    top: -27px; 
+    left: 78px; 
+    width: 36px; 
+    height: 26px;
+    text-align: center; 
+    cursor: pointer;
+    background-repeat: no-repeat;
+}
+
+/*firefox split windows*/
+#divFathVideo{position:relative;color:red; padding:1px;}
+#divFathVideo div{ background:#000; border:2px solid #414141; width:20px; height:20px; position:absolute; top:-10000px;}
+.btn_bar{height:24px; }
+
+.btn_bar{ height:27px; background:#000; z-index: 10000;}
+.btn_diver{ float:left; width:24px; height:24px; margin-left:5px; background:url(../image/Window.png) no-repeat;}
+.btn_diver:hover{ background-position: 0 -24px;}
+.btn_4d{ background-position:-24px 0;}
+.btn_4d:hover{ background-position: -24px -24px;}
+.btn_8d{ background-position:-48px 0;}
+.btn_8d:hover{ background-position: -48px -24px;}
+.btn_9d{ background-position:-72px 0;}
+.btn_9d:hover{ background-position: -72px -24px;}
+.btn_16d{ background-position:-96px 0;}
+.btn_16d:hover{ background-position: -96px -24px;}

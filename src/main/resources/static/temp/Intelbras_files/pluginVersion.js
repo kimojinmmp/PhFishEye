@@ -1,0 +1,1 @@
+var PLUGINS_VERSION="3.1.0.365007",MAC_PLUGINS_VERSION="1.0.0.1",PLUGINS_CLASSID="D5633C65-27E1-41d8-89A3-9B190B98FA3D",PLUGINS_NAME="WebActiveX.Plugin.1",PLUGINS_MAINTYPE="application/media-plugin-intelbras-new",MAC_PLUGIN_MAINTYPE="application/media-plugin-version-1.0.0.1",VERSION_GUI="version=3,2,7,61635";

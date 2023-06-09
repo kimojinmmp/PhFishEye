@@ -1,0 +1,98 @@
+html, body {
+    background: none repeat scroll 0 0 #575A5F;
+}
+.login-container {
+    background: none;
+}
+.main-logo {
+    width: 250px;
+}
+.main-nav {
+    left:257px;
+}
+.pre-minwidth {
+    background: none repeat scroll 0 0 #575A5F;
+}
+.u-tab,.u-tab ul,.ui-tab ul {
+    background: none repeat scroll 0 0 #575A5F;
+}
+.frameBckcolor {
+    background: none repeat scroll 0 0 #575A5F;
+}
+.main-head {
+	background: none repeat scroll 0 0 #F4F4F4;
+}
+.pre-right-title {
+    background: none repeat scroll 0 0 #575A5F;
+    border-top: 10px solid #575A5F;
+}
+.pre-right-title-image {
+	width: 140px;
+}
+/* 录像计划页面去掉动检&报警录像设置时的背景更改 */
+.ui-timeplan-canvas-noDM {
+    float: left;
+    width: 529px;
+    height: 211px;
+    background: url(../image/timep_boxbgEx.png?version=2.210) 0 0 repeat;
+}
+/* 回放页面日历样式修改 */
+.J_pb_topleft{ background:#575A5F;}
+.J_pb_dateinput[type=text]:focus,.J_pb_dateinput_selected{background:#8CC31D;}
+.J_pb_inputbox{ background:#fff;}
+.J_pb_days{ width:210px;padding:5px 0 0 4px;}
+.J_pb_days li{width:25px; margin:0 5px 2px 0;}
+.J_pb_days li.J_hasvideo a{background:#8CC31D;color:#000;}
+.J_pb_days li.J_hasvnow a{ background:#8CC31D;}
+.J_pb_dl_list .li3{ width:63px;}
+/* 预览全部打开下拉选项宽度增加 */
+.pre-lef-popup,.pre-lef-popup li{width:110px;}
+.pre-lef-popup li a{width:100px;}
+/* 录像控制页面全标签宽度的增加 */
+.list_channel_all,.list_channel_all h1,.list_channel_all p{width:30px;}
+.list_title{width:110px;}
+.list_title h1 {
+    width: 100%;
+}
+.ui-channel-all {
+    background-position: -90px -126px;
+    width: 35px;
+}
+.ui-channel-all:hover{
+    background-position: -90px -156px;
+}
+.ui-channel-item-all-currnet,
+.ui-channel-item-all-currnet:hover{
+    width:35px;
+    background-position: -90px -186px;
+}
+.ui-channel-item-all-disabled{
+    width:35px;
+    background-position: -90px -216px;
+}
+.ui-channel-item-all{
+    width:35px;
+    background-position: -90px -126px;
+}
+.ui-channel-item-all:hover{
+width:35px;
+    background-position: -90px -186px;
+}
+div[name="snmpv3"]  select.ui-input{
+    width: 160px;
+}
+.display-device-sub{
+    background-color: #FFFFFF;
+    text-align: left;
+    display: block;
+    float: right;
+    width: 95px;
+    margin-top: 96px;
+}
+.ui-channel-item{
+    display: block;
+    overflow: hidden;
+    white-space: nowrap;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}

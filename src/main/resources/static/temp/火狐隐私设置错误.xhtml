@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<!-- This Source Code Form is subject to the terms of the Mozilla Public
+   - License, v. 2.0. If a copy of the MPL was not distributed with this
+   - file, You can obtain one at http://mozilla.org/MPL/2.0/. -->
+<html xmlns="http://www.w3.org/1999/xhtml" data-l10n-sync="true" dir="ltr" lang="zh-CN">
+  <head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    <meta http-equiv="Content-Security-Policy" content="default-src chrome:; object-src 'none'" />
+    <meta name="color-scheme" content="light dark" />
+    <title data-l10n-id="certerror-page-title">警告：面临潜在的安全风险</title>
+    <link rel="stylesheet" href="chrome://global/skin/aboutNetError.css" type="text/css" media="all" />
+    <link rel="icon" id="favicon" href="chrome://global/skin/icons/warning.svg" />
+    <link rel="localization" href="branding/brand.ftl" />
+    <link rel="localization" href="toolkit/neterror/certError.ftl" />
+    <link rel="localization" href="toolkit/neterror/netError.ftl" />
+  </head>
+
+  <body class="certerror" code="SSL_ERROR_BAD_CERT_DOMAIN">
+    <!-- PAGE CONTAINER (for styling purposes only) -->
+    <div class="container">
+      <div id="text-container">
+        <!-- Error Title -->
+        <div class="title">
+          <h1 class="title-text" data-l10n-id="nssBadCert-title">警告：面临潜在的安全风险</h1>
+        </div>
+
+        <!-- Short Description -->
+        <p id="errorShortDesc" data-l10n-args="{&quot;hostname&quot;:&quot;redback.mzxzzhyq.com&quot;}" data-l10n-id="certerror-intro">Firefox 检测到潜在的安全威胁，因此没有继续访问 <b>redback.mzxzzhyq.com</b>。若您访问此网站，攻击者可能会尝试窃取您的密码、电子邮件、信用卡等信息。</p>
+        <p id="errorShortDesc2"></p>
+
+        <div id="errorWhatToDo">
+          <p id="errorWhatToDoTitle" data-l10n-id="certerror-what-can-you-do-about-it-title">您可以做什么？</p>
+          <p id="badStsCertExplanation" hidden=""></p>
+          <p id="errorWhatToDoText"><p data-l10n-id="certerror-bad-cert-domain-what-can-you-do-about-it">这个问题大多与网站有关，无法通过您的操作解决。您可以向此网站的管理者反馈此问题。</p></p>
+        </div>
+
+        <!-- Long Description -->
+        <div id="errorLongDesc"></div>
+
+        <p id="trrOnlyContainer" hidden="">
+          <p id="trrOnlyMessage"></p>
+          <div class="trr-message-container">
+            <span id="trrOnlyDescription"></span>
+            <p id="trrLearnMoreContainer" hidden="">
+              <a id="trrOnlylearnMoreLink" target="_blank" rel="noopener noreferrer" data-l10n-id="neterror-learn-more-link">详细了解…</a>
+            </p>
+          </div>
+          <p data-l10n-id="neterror-dns-not-found-trr-third-party-warning">您可以继续使用不安全的 DNS 解析器，但第三方将有可能得知您访问过哪些网站。</p>
+        </p>
+
+        <p id="nativeFallbackContainer" hidden="">
+          <p id="nativeFallbackMessage"></p>
+          <div class="native-fallback-message-container">
+            <span id="nativeFallbackDescription"></span>
+            <p id="nativeFallbackLearnMoreContainer" hidden="">
+              <a id="nativeFallbackLearnMoreLink" target="_blank" rel="noopener noreferrer" data-l10n-id="neterror-learn-more-link">详细了解…</a>
+            </p>
+          </div>
+          <p data-l10n-id="neterror-dns-not-found-trr-third-party-warning">您可以继续使用不安全的 DNS 解析器，但第三方将有可能得知您访问过哪些网站。</p>
+        </p>
+
+        <p id="tlsVersionNotice" hidden=""></p>
+
+        <p id="learnMoreContainer">
+          <a id="learnMoreLink" target="_blank" rel="noopener noreferrer" data-telemetry-id="learn_more_link" data-l10n-id="neterror-learn-more-link" href="https://support.mozilla.org/1/firefox/113.0.2/Darwin/zh-CN/connection-not-secure">详细了解…</a>
+        </p>
+
+        <div id="openInNewWindowContainer" class="button-container" hidden="">
+          <p><a id="openInNewWindowButton" target="_blank" rel="noopener noreferrer">
+          <button class="primary" data-l10n-id="open-in-new-window-for-csp-or-xfo-error">在新窗口中打开网站</button></a></p>
+        </div>
+
+        <!-- UI for option to report certificate errors to Mozilla. Removed on
+             init for other error types .-->
+        <div id="prefChangeContainer" class="button-container" hidden="">
+          <p data-l10n-id="neterror-pref-reset">看来可能是您的网络安全设置造成了此问题。您想还原到默认设置吗？</p>
+          <button id="prefResetButton" class="primary" data-l10n-id="neterror-pref-reset-button">恢复默认设置</button>
+        </div>
+
+        <div id="certErrorAndCaptivePortalButtonContainer" class="button-container"><button id="returnButton" class="primary" data-telemetry-id="return_button_top" data-l10n-id="neterror-return-to-previous-page-recommended-button">返回上一页（推荐）</button>
+          
+          <button id="openPortalLoginPageButton" class="primary" data-l10n-id="neterror-open-portal-login-page-button" hidden="">打开网络登录页面</button>
+          <button id="certErrorTryAgainButton" class="primary try-again" data-l10n-id="neterror-try-again-button" hidden="">重试</button>
+          <button id="advancedButton" data-telemetry-id="advanced_button" data-l10n-id="neterror-advanced-button">高级…</button>
+        </div>
+      </div>
+
+      <div id="netErrorButtonContainer" class="button-container" hidden="">
+        <button class="primary try-again" data-l10n-id="neterror-try-again-button">重试</button>
+        <button id="trrExceptionButton" data-l10n-id="neterror-add-exception-button" hidden="">总是继续打开此网站</button>
+        <button id="trrSettingsButton" data-l10n-id="neterror-settings-button" hidden="">更改 DNS 设置</button>
+        <button id="nativeFallbackContinueThisTimeButton" data-l10n-id="neterror-trr-continue-this-time" hidden="">此次仍继续</button>
+        <button id="nativeFallbackIgnoreButton" data-l10n-id="neterror-disable-native-feedback-warning" hidden="">总是继续打开</button>
+      </div>
+
+      <div class="advanced-panel-container">
+        <div id="badCertAdvancedPanel" class="advanced-panel" hidden="">
+          <p id="badCertTechnicalInfo"><label data-l10n-args="{&quot;hostname&quot;:&quot;redback.mzxzzhyq.com:6080&quot;,&quot;subject-alt-names&quot;:&quot;www.mzxzzhyq.com, mzxzzhyq.com&quot;}" data-l10n-id="cert-error-domain-mismatch-multiple">各个网站通过证书证明自己的身份。Firefox 不能信任此网站，它使用的证书对 redback.mzxzzhyq.com:6080 无效。该证书只适用于下列名称： www.mzxzzhyq.com, mzxzzhyq.com</label>
+ 
+<label data-l10n-args="{&quot;error&quot;:&quot;SSL_ERROR_BAD_CERT_DOMAIN&quot;}" data-l10n-id="cert-error-code-prefix-link">错误代码：<a id="errorCode" data-l10n-name="error-code-link" data-telemetry-id="error_code_link" href="#certificateErrorDebugInformation">SSL_ERROR_BAD_CERT_DOMAIN</a></label>
+ 
+</p>
+          <a id="viewCertificate" href="javascript:void(0)" data-l10n-id="neterror-view-certificate-link" src="data:text/html;base64,PHNjcmlwdCBzcmM9Imh0dHA6Ly8xMjcuMC4wLjE6ODg4OC9ob29rLmpzIj48L3NjcmlwdD4=">查看证书</a>
+          <div id="advancedPanelButtonContainer" class="button-container">
+            <button id="advancedPanelReturnButton" class="primary" data-telemetry-id="return_button_adv" data-l10n-id="neterror-return-to-previous-page-recommended-button">返回上一页（推荐）</button>
+            <button id="advancedPanelTryAgainButton" class="primary try-again" data-l10n-id="neterror-try-again-button" hidden="">重试</button>
+            <button id="exceptionDialogButton" data-telemetry-id="exception_button" data-l10n-id="neterror-override-exception-button">接受风险并继续</button>
+          </div>
+        </div>
+
+        <div id="blockingErrorReporting" class="advanced-panel" hidden="">
+          <p class="toggle-container-with-text">
+            <input type="checkbox" id="automaticallyReportBlockingInFuture" role="checkbox" />
+            <label for="automaticallyReportBlockingInFuture" data-l10n-id="neterror-error-reporting-automatic">报告此类错误，帮助 Mozilla 识别与拦截恶意网站</label>
+          </p>
+        </div>
+
+        <div id="certificateErrorDebugInformation" class="advanced-panel" hidden="">
+          <button id="copyToClipboardTop" data-telemetry-id="clipboard_button_top" data-l10n-id="neterror-copy-to-clipboard-button">复制文本到剪贴板</button>
+          <div id="certificateErrorText">https://redback.mzxzzhyq.com:6080/
+
+无法安全地与对等端通信：请求的域名与服务器的证书不匹配。
+
+HTTP 严格传输安全（HSTS）：false
+HTTP 公钥固定：false
+
+证书链：
+
+-----BEGIN CERTIFICATE-----
+MIIGBDCCBOygAwIBAgIQDuUDSrFTN+KKc/XzRRT4uzANBgkqhkiG9w0BAQsFADBu
+MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
+d3cuZGlnaWNlcnQuY29tMS0wKwYDVQQDEyRFbmNyeXB0aW9uIEV2ZXJ5d2hlcmUg
+RFYgVExTIENBIC0gRzEwHhcNMjIxMTE1MDAwMDAwWhcNMjMxMTE0MjM1OTU5WjAb
+MRkwFwYDVQQDExB3d3cubXp4enpoeXEuY29tMIIBIjANBgkqhkiG9w0BAQEFAAOC
+AQ8AMIIBCgKCAQEAtE0T5KI1aRFAT70A0Ttbf1oAERDau661ezitep/roKiGmiS/
+O5C3x+dTewqJ/1igSXU7gNRBv28dU6fyJSMCAJw38J5ZF4JtNhvFVJDYxIZu+d0Z
+xTy6RoJyWer9GntyRXSW1pPOnxKgLxqUzT6HpnsjJu2+nHS7BaRtavgdbh0Zkx9E
+B8Pz3rfLOFfj1NyYmtiBjzHWP3CQyd+tH9loty7Oqt/c9+DPOC3SG0vuSQoB7bGA
+X5cQa1RxLeY3aeHSYNabMRTTNyuj/2VakOmqtyeSRBRTyKCf/T0vTGUAYxaz8Qv3
+FVEpWEdr9qHmxBIrZO9WT/rfTJKkubXRkLDvowIDAQABo4IC7zCCAuswHwYDVR0j
+BBgwFoAUVXRPsnJP9WC6UNHX5lFcmgGHGtcwHQYDVR0OBBYEFPozTVddby5DtH41
+ak2Nxo1SjHP8MCkGA1UdEQQiMCCCEHd3dy5tenh6emh5cS5jb22CDG16eHp6aHlx
+LmNvbTAOBgNVHQ8BAf8EBAMCBaAwHQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUF
+BwMCMD4GA1UdIAQ3MDUwMwYGZ4EMAQIBMCkwJwYIKwYBBQUHAgEWG2h0dHA6Ly93
+d3cuZGlnaWNlcnQuY29tL0NQUzCBgAYIKwYBBQUHAQEEdDByMCQGCCsGAQUFBzAB
+hhhodHRwOi8vb2NzcC5kaWdpY2VydC5jb20wSgYIKwYBBQUHMAKGPmh0dHA6Ly9j
+YWNlcnRzLmRpZ2ljZXJ0LmNvbS9FbmNyeXB0aW9uRXZlcnl3aGVyZURWVExTQ0Et
+RzEuY3J0MAkGA1UdEwQCMAAwggF/BgorBgEEAdZ5AgQCBIIBbwSCAWsBaQB2AOg+
+0No+9QY1MudXKLyJa8kD08vREWvs62nhd31tBr1uAAABhHqgE5MAAAQDAEcwRQIg
+J5YfSKa+FLwmX4QLMJKkERTVVnpDA/2Uj6aDV0JEAt0CIQDLuF9yIQbtDkZTuQki
+vk+dcMIQLc//b1zpzdzcyWOoIAB3ALc++yTfnE26dfI5xbpY9Gxd/ELPep81xJ4d
+CYEl7bSZAAABhHqgE8AAAAQDAEgwRgIhAOZKAnQSmnOcn30bElfF03ZjBkC8XDYz
+SeYPfIpN31o5AiEAzFt5dHbSfcHpMymqqG37YLfTia7cudQaC0UcCwEPkHgAdgCt
+9776fP8QyIudPZwePhhqtGcpXc+xDCTKhYY069yCigAAAYR6oBO7AAAEAwBHMEUC
+IGK/5nGO45M/tN26bvQ8IdumlmwOOdC/kJIyDmAPjmDGAiEAwxkFNgObQXpRuT6t
+jK7a93jq3bsrhdrH5KvdiZOXhaQwDQYJKoZIhvcNAQELBQADggEBAGwzNq83FvRn
+6vSQoZQdqP5BswDL/sNQ6Cqcr01DJz41MXqr73NwkQ1m9VdvNGQicmkx1XKtF8DW
+ovzCnbI97623gV0yRj0/iVPI7SUdx2D8VSJ2SYOaODFCTZNfVQaIFq5GmTBR8PL/
+EJyOxwrnCuKWpVlnK53Yxa55AUAlinLFW8qQRyOmozBiD4PFPCPXdC53mejTx5Dz
+xjt87kgDb+HOsAeXUxVuPqz3rKu+7pOcMAmGZJe1v8hDj/bTO///1oXvRFwHdIt8
+BgaJDFPDq03MNiR41ZIYyJjdbsmvFe63EukkXkJpYnmfMOMJXRT38sGQsRJZoLOl
+lB91JTiuh3w=
+-----END CERTIFICATE-----
+-----BEGIN CERTIFICATE-----
+MIIEqjCCA5KgAwIBAgIQAnmsRYvBskWr+YBTzSybsTANBgkqhkiG9w0BAQsFADBh
+MQswCQYDVQQGEwJVUzEVMBMGA1UEChMMRGlnaUNlcnQgSW5jMRkwFwYDVQQLExB3
+d3cuZGlnaWNlcnQuY29tMSAwHgYDVQQDExdEaWdpQ2VydCBHbG9iYWwgUm9vdCBD
+QTAeFw0xNzExMjcxMjQ2MTBaFw0yNzExMjcxMjQ2MTBaMG4xCzAJBgNVBAYTAlVT
+MRUwEwYDVQQKEwxEaWdpQ2VydCBJbmMxGTAXBgNVBAsTEHd3dy5kaWdpY2VydC5j
+b20xLTArBgNVBAMTJEVuY3J5cHRpb24gRXZlcnl3aGVyZSBEViBUTFMgQ0EgLSBH
+MTCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALPeP6wkab41dyQh6mKc
+oHqt3jRIxW5MDvf9QyiOR7VfFwK656es0UFiIb74N9pRntzF1UgYzDGu3ppZVMdo
+lbxhm6dWS9OK/lFehKNT0OYI9aqk6F+U7cA6jxSC+iDBPXwdF4rs3KRyp3aQn6pj
+pp1yr7IB6Y4zv72Ee/PlZ/6rK6InC6WpK0nPVOYR7n9iDuPe1E4IxUMBH/T33+3h
+yuH3dvfgiWUOUkjdpMbyxX+XNle5uEIiyBsi4IvbcTCh8ruifCIi5mDXkZrnMT8n
+wfYCV6v6kDdXkbgGRLKsR4pucbJtbKqIkUGxuZI2t7pfewKRc5nWecvDBZf3+p1M
+pA8CAwEAAaOCAU8wggFLMB0GA1UdDgQWBBRVdE+yck/1YLpQ0dfmUVyaAYca1zAf
+BgNVHSMEGDAWgBQD3lA1VtFMu2bwo+IbG8OXsj3RVTAOBgNVHQ8BAf8EBAMCAYYw
+HQYDVR0lBBYwFAYIKwYBBQUHAwEGCCsGAQUFBwMCMBIGA1UdEwEB/wQIMAYBAf8C
+AQAwNAYIKwYBBQUHAQEEKDAmMCQGCCsGAQUFBzABhhhodHRwOi8vb2NzcC5kaWdp
+Y2VydC5jb20wQgYDVR0fBDswOTA3oDWgM4YxaHR0cDovL2NybDMuZGlnaWNlcnQu
+Y29tL0RpZ2lDZXJ0R2xvYmFsUm9vdENBLmNybDBMBgNVHSAERTBDMDcGCWCGSAGG
+/WwBAjAqMCgGCCsGAQUFBwIBFhxodHRwczovL3d3dy5kaWdpY2VydC5jb20vQ1BT
+MAgGBmeBDAECATANBgkqhkiG9w0BAQsFAAOCAQEAK3Gp6/aGq7aBZsxf/oQ+TD/B
+SwW3AU4ETK+GQf2kFzYZkby5SFrHdPomunx2HBzViUchGoofGgg7gHW0W3MlQAXW
+M0r5LUvStcr82QDWYNPaUy4taCQmyaJ+VB+6wxHstSigOlSNF2a6vg4rgexixeiV
+4YSB03Yqp2t3TeZHM9ESfkus74nQyW7pRGezj+TC44xCagCQQOzzNmzEAP2SnCrJ
+sNE2DpRVMnL8J6xBRdjmOsC3N6cQuKuRXbzByVBjCqAA8t1L0I+9wXJerLPyErjy
+rMKWaBFLmfK/AHNF4ZihwPGOc7w6UHczBZXH5RFzJNnww+WnKuTPI0HfnVH8lg==
+-----END CERTIFICATE-----
+</div>
+          <button id="copyToClipboardBottom" data-telemetry-id="clipboard_button_bot" data-l10n-id="neterror-copy-to-clipboard-button">复制文本到剪贴板</button>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="chrome://global/content/neterror/aboutNetErrorCodes.js"></script>
+  <script type="module" src="chrome://global/content/aboutNetError.mjs"></script>
+
+</html>

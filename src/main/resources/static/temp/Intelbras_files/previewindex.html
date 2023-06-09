@@ -1,0 +1,738 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0014)about:internet -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>WEB SERVICE3.0</title>
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=6;IE=7; IE=8; IE=EmulateIE7">
+    <script type="text/javascript" src="./m1.2.js"></script>
+    <script type="text/javascript" src="./more.js"></script>
+	<script type="text/javascript" src="./aes.js"></script>
+	<script type="text/javascript" src="./rsa.js"></script>
+    <script type="text/javascript" src="./rpcCore.js"></script>
+    <script type="text/javascript" src="./common.js"></script>
+    <script type="text/javascript" src="./loginEx.js"></script>
+    <script type="text/javascript" src="./ptzCtrl.js"></script>
+    <script type="text/javascript" src="./cap.js"></script>
+    <link rel="stylesheet" type="text/css" href="./ui(1).css">
+    <link rel="stylesheet" type="text/css" href="./skin(1).css">
+
+    <script type="text/javascript" src="./previewindex.js"></script><link rel="stylesheet" media="screen" type="text/css" href="./reset.css" id="css_/css/reset.css"><link rel="stylesheet" media="screen" type="text/css" href="./ui.css" id="css_/css/ui.css"><link rel="stylesheet" media="screen" type="text/css" href="./previewindex.css" id="css_/css/previewindex.css"><link rel="stylesheet" media="screen" type="text/css" href="./fn.css" id="css_/css/fn.css"><link rel="stylesheet" media="screen" type="text/css" href="./skin.css" id="css_/css/skin.css"><link rel="stylesheet" media="screen" type="text/css" href="./oem.css" id="css_/css/oem.css">
+	<script type="text/javascript" src="./publicFunc.js"></script>
+
+
+</head>
+<body onclick="closeMenus()">
+    <div class="preview" id="previewcon">
+        <!--LEFT-CONTENT-->
+        <div class="pre-left" id="pre_left">
+            <div class="pre-left-channel fn-border-radius" id="pre_left_channel">
+                <div id="channel_mid" class="pre-left-channel-mid">
+                    <div id="channel_in" class="pre-left-channel-in"></div>
+                </div>
+				<ul id="prew_cmu" class="pre_channel_stream"><!--<li style='float:left;width:100%;' onclick='openTargetVideo(this,%s)'>
+						<a id='channel_stream%s' href='javascript:;'>
+							<span id='prew_dot%s' style='visibility:hidden;'>●</span>
+							%s
+						</a>
+					</li>-->
+				</ul>
+				<div id="scrollbar" class="pre-left-channel-slider">
+                    <div id="block5" class="pre-left-channel-sax"></div>
+                </div>
+            </div>
+            <div class="pre-left-control fn-border-radius fn-clear" id="left_bot">
+                <div class="ui-button-box" style="font-size: 12px">
+                    <div id="p_openAll" class="fn-marb5" style="position: relative;z-index: 10">
+                        <a id="xac" class="ui-button-special pre-left_btn" style="*margin-top: 1px" href="javascript:;" onclick="openall(this, tl(&#39;com_str.closeall&#39;), tl(&#39;com_str.openall&#39;))">
+                            <i class="ui-button-icon-open"></i>
+                            <label id="xac_label" t="com_str.openall;title::com_msg.open or close all" title="Abrir/Fechar todas as câmeras">Abrir todos</label>
+                        </a>
+                        <a id="xac_show" href="javascript:;" class="ui-button pre-left-btn-arrow"> <i class="ui-button-icon-arrow"></i>
+                        </a>
+						<div id="mnuopen" style="display:none" class="pre-lef-popup">
+							<ul id="mnuopenl"></ul>
+						</div>
+                    </div>
+                    <div id="p_talk" class="fn-marb5" style="position: relative;z-index: 9">
+                        <a id="xdj" style="*margin-top:1px" class="ui-button-special pre-left_btn" href="javascript:;" onclick="startTalk()">
+                            <i class="ui-button-icon-speak"></i>
+                            <label id="xdj_label" t="com_str.start talk">Diálogo</label>
+                        </a>
+                        <a id="xdj_show" href="javascript:;" class="ui-button pre-left-btn-arrow">
+                            <i class="ui-button-icon-arrow"></i>
+                        </a>
+						<div id="mnudj" style="display:none" class="pre-lef-popup">
+							<ul id="mnudjl"></ul>
+						</div>
+                    </div>
+                    <div class="fn-marb5" style="display:none;">
+                        <a id="xsxt" class="ui-button-special pre-left_btn" href="javascript:;" onclick="rfc()">
+                            <i class="ui-button-icon-refresh"></i>
+                            <label t="com_button.comrefresh;title::com_button.comrefresh" title="Atualizar">Atualizar</label>
+                        </a>
+                    </div>
+                    <div class="fn-marb5">
+                        <a class="ui-button-special pre-left_btn1" href="javascript:;" id="rc1all" t1="title::conf_record.UrgentRecord" onclick="urgentRecord()">
+                            <i class="ui-button-icon-record"></i>
+                            <label t="conf_record.UrgentRecord;title::conf_record.enableAllChannelManualRecord" title="Habilitar gravação manual de todos os canais">Gravar</label>
+                        </a>
+                    </div>
+                    <div class="fn-marb5" id="p_local">
+                        <a class="ui-button-special pre-left_btn1" href="javascript:;" t="title::opr_play.Local play" onclick="startLocalPlay()" title="Reproduzir">
+                            <i class="ui-button-icon-replay"></i>
+                            <label t="opr_play.Local play;title::opr_play.Local play" title="Reproduzir">Reproduzir</label>
+                        </a>
+                    </div>
+                    <div class="fn-marb5" id="multiPreview" style="display:none;position: relative">
+                        <a class="ui-button-special pre-left_btn fn-textcenter" href="javascript:;" id="openPreview" t="title::com_button.MultiPreview" title="Multi-Canais">
+                            <i class="ui-button-blankicon"></i>
+                            <label t="com_button.MultiPreview;title::com_button.MultiPreview" title="Multi-Canais">Multi-Canais</label>
+                        </a>
+                        <a id="screen_show" href="javascript:;" class="ui-button pre-left-btn-arrow"> <i class="ui-button-icon-arrow"></i>
+                        </a>
+						<div id="mnumutipreview" style="display:none" class="pre-lef-popup">
+							<ul id="mnumuti"></ul>
+						</div>
+                    </div>
+
+                    <div class="fn-marb5">
+                        <a style="display:none" class="ui-button fn-width60" href="javascript:;">kel</a>
+                        <a style="display:none" class="ui-button fn-width60" href="javascript:;">closebeep</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--RIGHT-CONTENT-->
+        <div class="pre-right" id="pre_rig">
+            <div class="pre-righter" id="pre_righter">
+                <div id="pre_fisheye"></div>
+                <!--总云台-->
+                <div id="ptzAll" class="pre-right-box fn-border-radius" style="display:block;">
+                    <!--云台-->
+                    <div id="yt" class="ui-ptz-iconbox fn-clear">
+                        <a href="javascript:;" class="ui-ptz-icon ui-ptz-pos-leftup" style="cursor:pointer;" data-direction="LeftUp" onmousedown="cptzd(true,&#39;LeftUp&#39;,$(&#39;ps&#39;).value-0,0)" onmouseup="cptzd(false,&#39;LeftUp&#39;, $(&#39;ps&#39;).value-0,0)" onmouseout="ptzLeave(false,&#39;LeftUp&#39;, $(&#39;ps&#39;).value-0,0);removePtzBg(&#39;LeftUp&#39;)" onmouseover="addPtzBg(&#39;LeftUp&#39;)">
+                            <i class="ui-ptz-icon-leftup"></i>
+                        </a>
+                        <a href="javascript:;" class="ui-ptz-icon ui-ptz-pos-up" style="cursor:pointer;" data-direction="Up" onmousedown="cptzd(true,&#39;Up&#39;,$(&#39;ps&#39;).value-0,0)" onmouseup="cptzd(false,&#39;Up&#39;, $(&#39;ps&#39;).value-0,0)" onmouseout="ptzLeave(false,&#39;Up&#39;, $(&#39;ps&#39;).value-0,0);removePtzBg(&#39;Up&#39;)" onmouseover="addPtzBg(&#39;Up&#39;)">
+                            <i class="ui-ptz-icon-up"></i>
+                        </a>
+                        <a href="javascript:;" class="ui-ptz-icon fn-marr0 ui-ptz-pos-rightup" style="cursor:pointer; margin-right:0px" data-direction="RightUp" onmousedown="cptzd(true,&#39;RightUp&#39;,$(&#39;ps&#39;).value-0,0)" onmouseup="cptzd(false,&#39;RightUp&#39;, $(&#39;ps&#39;).value-0,0)" onmouseout="ptzLeave(false,&#39;RightUp&#39;, $(&#39;ps&#39;).value-0,0);removePtzBg(&#39;RightUp&#39;)" onmouseover="addPtzBg(&#39;RightUp&#39;)">
+                            <i class="ui-ptz-icon-rightup"></i>
+                        </a>
+                        <a href="javascript:;" class="ui-ptz-icon ui-ptz-pos-left" style="cursor:pointer;" data-direction="Left" onmousedown="cptzd(true,&#39;Left&#39;,$(&#39;ps&#39;).value-0,0)" onmouseup="cptzd(false,&#39;Left&#39;, $(&#39;ps&#39;).value-0,0)" onmouseout="ptzLeave(false,&#39;Left&#39;, $(&#39;ps&#39;).value-0,0);removePtzBg(&#39;Left&#39;)" onmouseover="addPtzBg(&#39;Left&#39;)">
+                            <i class="ui-ptz-icon-left"></i>
+                        </a>
+                        <a href="javascript:;" class="ui-ptz-specail-icon ui-ptz-pos-center" style="cursor:pointer;" onclick="cptzEx(this)" id="cptz" onmouseout="removePtzBg(&#39;Center&#39;)" onmouseover="addPtzBg(&#39;Center&#39;)">
+                            <i class="ui-ptz-icon-center"></i>
+                        </a>
+                        <a href="javascript:;" class="ui-ptz-icon fn-marr0 ui-ptz-pos-right" style="cursor:pointer; margin-right:0px" data-direction="Right" onmousedown="cptzd(true,&#39;Right&#39;,$(&#39;ps&#39;).value-0,0)" onmouseup="cptzd(false,&#39;Right&#39;, $(&#39;ps&#39;).value-0,0)" onmouseout="ptzLeave(false,&#39;Right&#39;, $(&#39;ps&#39;).value-0,0);removePtzBg(&#39;Right&#39;)" onmouseover="addPtzBg(&#39;Right&#39;)">
+                            <i class="ui-ptz-icon-right"></i>
+                        </a>
+                        <a href="javascript:;" class="ui-ptz-icon ui-ptz-pos-leftdown" style="cursor:pointer;" data-direction="LeftDown" onmousedown="cptzd(true,&#39;LeftDown&#39;,$(&#39;ps&#39;).value-0,0)" onmouseup="cptzd(false,&#39;LeftDown&#39;, $(&#39;ps&#39;).value-0,0)" onmouseout="ptzLeave(false,&#39;LeftDown&#39;, $(&#39;ps&#39;).value-0,0);removePtzBg(&#39;LeftDown&#39;)" onmouseover="addPtzBg(&#39;LeftDown&#39;)">
+                            <i class="ui-ptz-icon-leftdown"></i>
+                        </a>
+                        <a href="javascript:;" class="ui-ptz-icon ui-ptz-pos-down" style="cursor:pointer;" data-direction="Down" onmousedown="cptzd(true,&#39;Down&#39;,$(&#39;ps&#39;).value-0,0)" onmouseup="cptzd(false,&#39;Down&#39;, $(&#39;ps&#39;).value-0,0)" onmouseout="ptzLeave(false,&#39;Down&#39;, $(&#39;ps&#39;).value-0,0);removePtzBg(&#39;Down&#39;)" onmouseover="addPtzBg(&#39;Down&#39;)">
+                            <i class="ui-ptz-icon-down"></i>
+                        </a>
+                        <a href="javascript:;" class="ui-ptz-icon fn-marr0 ui-ptz-pos-rightdown" style="cursor:pointer; margin-right:0px" data-direction="RightDown" onmousedown="cptzd(true,&#39;RightDown&#39;,$(&#39;ps&#39;).value-0,0)" onmouseup="cptzd(false,&#39;RightDown&#39;, $(&#39;ps&#39;).value-0,0)" onmouseout="ptzLeave(false,&#39;RightDown&#39;, $(&#39;ps&#39;).value-0,0);removePtzBg(&#39;RightDown&#39;)" onmouseover="addPtzBg(&#39;RightDown&#39;)">
+                            <i class="ui-ptz-icon-rightdown"></i>
+                        </a>
+                    </div>
+                    <!--步长-->
+                    <div id="bc" class="pre-ptz-step">
+                        <span t="opr_ptz.Step">Veloc.(1-8):</span>
+                        <select id="ps" class="fn-width40">
+                            <option value="1">1</option>
+                            <option value="2">2</option>
+                            <option value="3">3</option>
+                            <option value="4">4</option>
+                            <option value="5" selected="">5</option>
+                            <option value="6">6</option>
+                            <option value="7">7</option>
+                            <option value="8">8</option>
+                        </select>
+                        <div class="speed_sliderbg" id="speedBg">
+                            <div id="speed_changeBar" class="sliderline_speed" style="width: 900px;">
+                                <a class="pb_speed_sax" id="SpeedControl" style="position: relative; left: 900px;"></a>
+                            </div>
+                        </div>
+                    </div>
+                    <!--变焦等-->
+                    <div id="yt1" class="ui-ptz-adjust-item fn-clear fn-marl15">
+                        <!--special客户定制云台界面-->
+                        <label t="opr_ptz.Zoom" class="ui-ptz-adjust-special-text fn-color-white">Zoom</label>
+                        <label t="opr_ptz.Focus" class="ui-ptz-adjust-special-text fn-color-white">Foco</label>
+                        <label t="opr_ptz.Iris" class="ui-ptz-adjust-special-text fn-color-white">Iris</label>
+
+                        <div class="ui-ptz-box">
+                            <a href="javascript:;" class="ui-ptz-icon" style="cursor:pointer;" data-direction="ZoomWide" onmousedown="cptzd(true,&#39;ZoomWide&#39;,$(&#39;ps&#39;).value-0,0)" onmouseup="cptzd(false,&#39;ZoomWide&#39;,$(&#39;ps&#39;).value-0,0)" onmouseout="ptzLeave(false,&#39;ZoomWide&#39;, $(&#39;ps&#39;).value-0,0)">
+                                <i class="ui-ptz-icon-less"></i>
+                            </a>
+                            <label t="opr_ptz.Zoom" class="ui-ptz-adjust-text fn-color-white">Zoom</label>
+                            <a href="javascript:;" class="ui-ptz-icon" style="cursor:pointer;" data-direction="ZoomTele" onmousedown="cptzd(true,&#39;ZoomTele&#39;,$(&#39;ps&#39;).value-0,0)" onmouseup="cptzd(false,&#39;ZoomTele&#39;,$(&#39;ps&#39;).value-0,0)" onmouseout="ptzLeave(false,&#39;ZoomTele&#39;, $(&#39;ps&#39;).value-0,0)">
+                                <i class="ui-ptz-icon-more"></i>
+                            </a>
+                        </div>
+                        <div class="ui-ptz-box">
+                            <a href="javascript:;" class="ui-ptz-icon" style="cursor:pointer;" data-direction="FocusNear" onmousedown="cptzd(true,&#39;FocusNear&#39;,$(&#39;ps&#39;).value-0,0)" onmouseup="cptzd(false,&#39;FocusNear&#39;,$(&#39;ps&#39;).value-0,0)" onmouseout="ptzLeave(false,&#39;FocusNear&#39;, $(&#39;ps&#39;).value-0,0)">
+                                <i class="ui-ptz-icon-less"></i>
+                            </a>
+                            <label t="opr_ptz.Focus" class="ui-ptz-adjust-text fn-color-white">Foco</label>
+                            <a href="javascript:;" class="ui-ptz-icon" style="cursor:pointer;" data-direction="FocusFar" onmousedown="cptzd(true,&#39;FocusFar&#39;,$(&#39;ps&#39;).value-0,0)" onmouseup="cptzd(false,&#39;FocusFar&#39;,$(&#39;ps&#39;).value-0,0)" onmouseout="ptzLeave(false,&#39;FocusFar&#39;, $(&#39;ps&#39;).value-0,0)">
+                                <i class="ui-ptz-icon-more"></i>
+                            </a>
+                        </div>
+                        <div class="ui-ptz-box">
+                            <a href="javascript:;" class="ui-ptz-icon" style="cursor:pointer;" data-direction="IrisSmall" onmousedown="cptzd(true,&#39;IrisSmall&#39;,$(&#39;ps&#39;).value-0,0)" onmouseup="cptzd(false,&#39;IrisSmall&#39;,$(&#39;ps&#39;).value-0,0)" onmouseout="ptzLeave(false,&#39;IrisSmall&#39;, $(&#39;ps&#39;).value-0,0)">
+                                <i class="ui-ptz-icon-less"></i>
+                            </a>
+                            <label t="opr_ptz.Iris" class="ui-ptz-adjust-text fn-color-white">Iris</label>
+                            <a href="javascript:;" class="ui-ptz-icon" style="cursor:pointer;" data-direction="IrisLarge" onmousedown="cptzd(true,&#39;IrisLarge&#39;,$(&#39;ps&#39;).value-0,0)" onmouseup="cptzd(false,&#39;IrisLarge&#39;,$(&#39;ps&#39;).value-0,0)" onmouseout="ptzLeave(false,&#39;IrisLarge&#39;, $(&#39;ps&#39;).value-0,0)">
+                                <i class="ui-ptz-icon-more"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!--云台高级-->
+                <div id="yt2" class="pre-ptz fn-clear">
+                    <!--此处开始是新的云台设置-->
+                    <div id="yt21" class="pre-adv-ptz Bydemes-ptz" style="display:none;">
+                        <div class="pre-right-title">
+                            <a id="advptz" t="conf_account.PtzConfig_auth" class="pre-right-title-item pre-right-title-item-current Bydemes-ptz" href="javascript:;" style="white-space: nowrap;">PTZ</a>
+                            <a id="otherptz" t="opr_ptz.PTZMenu" class="pre-right-title-item fn-marr0 Bydemes-ptz-grey" href="javascript:;">PTZ Menu</a>
+                        </div>
+                        <div id="pztcon" class="pre-right-box">
+                            <div class="fn-padt8 fn-padb8 fn-clear">
+                                <select id="ytszSelect" class="ui-select fn-width140" onchange="changePtzSetup(this.value)">
+                                    <option value="xxsmCon" selected="" t="opr_ptz.Auto-Scan">Scan</option>
+                                    <option value="yzdCon" t="opr_ptz.Preset">Preset</option>
+                                    <option value="xhzCon" t="ctrl_ptz.cruise">Tour</option>
+                                    <option value="xjCon" t="opr_ptz.Pattern">Patrulha</option>
+                                    <option value="xzCon" t="opr_ptz.Auto-Pan">Pan</option>
+                                    <option value="fzCon" t="opr_ptz.AUX">AUX</option>
+                                    <option value="dgCon" t="opr_ptz.LampWaterClear">Luz/Limpador</option>
+                                    <option value="turnCon" t="opr_ptz.Flip">Girar</option>
+                                    <option value="fwCon" t="opr_ptz.Reset">Resetar</option>
+                                </select>
+                            </div>
+                            <div id="xxsmCon" style="display:block;">
+                                <div class=" fn-clear fn-padt8">
+                                    <a href="javascript:;" id="b_xxsm1" t="opr_ptz.Start" class="ui-button fn-width68 fn-left fn-marr0">Iniciar</a>
+                                    <a href="javascript:;" id="b_xxsm2" t="info_log.stop" class="ui-button fn-width68 fn-left fn-marr0" style="display:none;">Parar</a>
+                                    <a href="javascript:;" id="b_xsset" t="com_str.Set" class="ui-button fn-width68 fn-left fn-marr0">Configurar</a>
+                                </div>
+                                <div class="fn-clear" style="display:none;" id="d_ptzset0">
+                                    <a href="javascript:;" id="b_setleft" t="com_str.leftLimit" class="ui-button fn-width68 fn-left fn-marr0">Esquerda</a>
+                                    <a href="javascript:;" id="b_setright" t="com_str.rightLimit" class="ui-button fn-width68 fn-left fn-marr0">Direita</a>
+                                </div>
+                            </div>
+                            <div id="yzdCon" style="display:none;">
+                                <div class=" fn-clear fn-padt8">
+                                    <p>
+                                        <input type="text" id="i_yzd" class="ui-input fn-width84 fn-left" value="1">
+                                        <label class="ui-label fn-left fn-width45">
+                                            <span id="title_minPreset">1</span>
+                                            ~
+                                            <span id="title_maxPreset">80</span>
+                                        </label>
+                                    </p>
+                                    <p>
+                                        <a href="javascript:;" id="b_yzd1" t="opr_ptz.Search" class="ui-button fn-width42 fn-left fn-marr1">Ir</a>
+                                        <a href="javascript:;" id="b_addyzd" t="com_str.add" class="ui-button fn-width42 fn-left fn-marr1">Adicionar</a>
+                                        <a href="javascript:;" id="b_delyzd" t="opr_ptz.Delete" class="ui-button fn-width42 fn-left fn-marr1">Rem</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div id="xhzCon" style="display:none">
+                                <div class="fn-clear fn-padt8">
+                                    <p>
+                                        <input type="text" id="i_xhz" class="ui-input fn-width84 fn-left" value="0">
+                                        <label class="ui-label fn-left fn-width45">
+                                            <span id="title_TourMin">0</span>
+                                            ~
+                                            <span id="title_TourMax">7</span>
+                                        </label>
+                                    </p>
+                                    <p>
+                                        <a href="javascript:;" id="b_xhz1" t="opr_ptz.Start" class="ui-button fn-width42 fn-left fn-marr1">Iniciar</a>
+                                        <a href="javascript:;" id="b_xhz2" t="info_log.stop" class="ui-button fn-width42 fn-left fn-marr1" style="display:none;">Parar</a>
+                                        <a href="javascript:;" id="b_addxhz" class="ui-button fn-width42 fn-left fn-marr1" style="display:none;">设置去掉</a>
+                                        <a href="javascript:;" id="b_xhset" t="com_str.add" class="ui-button fn-width42 fn-left fn-marr1">Adicionar</a>
+                                        <a href="javascript:;" id="b_delxhz" t="opr_ptz.Delete" class="ui-button fn-width42 fn-left fn-marr1">Rem</a>
+                                    </p>
+                                </div>
+                                <div class="fn-clear fn-padt8" style="display:none;" id="d_ptzset2">
+                                    <p>
+                                        <input type="text" id="i_pnt" class="ui-input fn-width84 fn-left" value="1">
+                                        <label class="ui-label fn-left fn-width45">
+                                            <span id="title_minPnt">1</span>
+                                            ~
+                                            <span id="title_maxPnt">80</span>
+                                        </label>
+                                    </p>
+                                    <p>
+                                        <a href="javascript:;" id="b_addpnt" t="opr_ptz.AddPreset" class="ui-button fn-width68 fn-left fn-marr0">Adic Preset</a>
+                                        <a href="javascript:;" id="b_delpnt" t="opr_ptz.DeletePreset" class="ui-button fn-width68 fn-left fn-marr0">Del Preset</a>
+                                    </p>
+                                </div>
+                            </div>
+
+                            <div id="xjCon" style="display:none;">
+                                <div class="fn-clear fn-padt8">
+                                    <p>
+                                        <input type="text" id="i_xj" class="ui-input fn-width84 fn-left" value="1">
+                                        <label class="ui-label fn-left fn-width45">
+                                            <span id="title_PatternMin">1</span>
+                                            ~
+                                            <span id="title_PatternMax">5</span>
+                                        </label>
+                                    </p>
+                                    <p>
+                                        <a href="javascript:;" id="b_xj1" t="opr_ptz.Start" class="ui-button fn-width42 fn-left fn-marr1">Iniciar</a>
+                                        <a href="javascript:;" id="b_xj2" t="info_log.stop" class="ui-button fn-width42 fn-left fn-marr1" style="display:none;">Parar</a>
+                                        <a href="javascript:;" id="b_xjset" t="com_str.add" class="ui-button fn-width42 fn-left fn-marr1">Adicionar</a>
+                                        <a href="javascript:;" id="b_delxj" t="opr_ptz.Delete" class="ui-button fn-width42 fn-left fn-marr1" style="display:none;">Rem</a>
+                                    </p>
+                                </div>
+                                <div class="fn-clear fn-padt8" style="display:none;" id="d_ptzset3">
+                                    <p>
+                                        <a href="javascript:;" t="opr_ptz.StartRec" id="b_startjl" class="ui-button fn-width68 fn-left fn-marr0">Iniciar</a>
+                                        <a href="javascript:;" t="opr_ptz.StopRec" id="b_stopjl" class="ui-button fn-width68 fn-left fn-marr0">Parar</a>
+                                    </p>
+                                </div>
+                            </div>
+                            <div id="fzCon" style="display:none;">
+                                <div class="fn-clear fn-padt8">
+                                    <input type="text" id="i_fzz" class="ui-input fn-width84 fn-left" value="1">
+                                    <label class="ui-label fn-left fn-width45">
+                                        <span id="title_AuxMin">1</span>
+                                        ~
+                                        <span id="title_AuxMax">8</span>
+                                    </label>
+                                    <a href="javascript:;" id="b_fzk1" t="opr_ptz.AUX ON" class="ui-button fn-width42 fn-left fn-marr1">Liga</a>
+                                    <a href="javascript:;" id="b_fzk2" t="opr_ptz.AUX OFF" class="ui-button fn-width42 fn-left fn-marr1">Desliga</a>
+                                    <a href="javascript:;" id="b_fzset" class="ui-button fn-width42 fn-left fn-marr1" style="display:none;">辅助设置</a>
+                                </div>
+                                <div class="fn-padt10" style="display:none;" id="d_ptzset4">
+                                    <p class="J_fzcon">
+                                        <input type="checkbox">
+                                        背光补偿
+                                    </p>
+                                    <p class="J_fzcon">
+                                        <input type="checkbox">
+                                        夜视功能
+                                    </p>
+                                    <p class="J_fzcon">
+                                        <input type="checkbox">
+                                        数字变倍
+                                    </p>
+                                    <p class="J_fzcon">
+                                        <input type="checkbox">
+                                        摄像机亮度
+                                    </p>
+                                    <p class="J_fzcon">
+                                        <input type="checkbox">
+                                        翻转
+                                    </p>
+                                </div>
+                            </div>
+                            <div id="dgCon" style="display:none;">
+                                <div class="fn-clear fn-padt8">
+                                    <a href="javascript:;" id="b_lighton" t="opr_ptz.LampWaterClear ON" class="ui-button fn-width60 fn-left fn-marr1">Liga</a>
+                                    <a href="javascript:;" id="b_lightoff" t="opr_ptz.LampWaterClear OFF" class="ui-button fn-width60 fn-left">Sair</a>
+                                </div>
+                            </div>
+                            <div id="xzCon" style="display:none;">
+                                <div class="fn-clear fn-padt8">
+                                    <a href="javascript:;" id="b_AutoPanOn" t="opr_ptz.Start" class="ui-button fn-width60 fn-left">Iniciar</a>
+                                    <a href="javascript:;" id="b_AutoPanOff" t="info_log.stop" class="ui-button fn-width60 fn-left" style="display:none;">Parar</a>
+                                </div>
+                            </div>
+                            <div id="turnCon" style="display:none;">
+                                <div class="fn-clear fn-padt8">
+                                    <a href="javascript:;" t="opr_ptz.Flip" id="b_turnOver" class="ui-button fn-width60 fn-left">Girar</a>
+                                </div>
+                            </div>
+                            <div id="fwCon" style="display:none;">
+                                <div class="fn-clear fn-padt8">
+                                    <a href="javascript:;" t="opr_ptz.Reset" id="b_ptzReset" class="ui-button fn-width60 fn-left">Resetar</a>
+                                </div>
+                            </div>
+                            <div id="positionCon" style="display:none;">
+                                <div class="J_buton_contain">
+                                    <span class="fn-lineh24" id="title_xValue">水平坐标</span>
+                                    (0~3600)
+                                    <input type="text" id="input_xValue" class="ui-input fn-width140">
+                                    <span class="fn-lineh24" id="title_yValue">垂直坐标</span>
+                                    (0~900)
+                                    <input type="text" id="input_yValue" class="ui-input fn-width140">
+                                    <span class="fn-lineh24" id="title_doubleValue">变倍</span>
+                                    (1~128)
+                                    <input type="text" id="input_doubleValue" class="ui-input fn-width140">
+                                    <a href="javascript:;" id="btn_position" class="ui-button fn-width80 fn-padt8">精确定位</a>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div id="boatmenu" class="boat_menu fn-clear" style="display:none;">
+                            <div class="ui-boat" id="boatX">
+                                <div class="ui-boat-current" id="boat_current">
+                                    <div id="boat1" class="ui-boat-box-up" onmouseover="addBg(&#39;up&#39;)" onmouseout="removeBg(&#39;up&#39;)"></div>
+                                    <div id="boat2" class="ui-boat-box-left" onmouseover="addBg(&#39;left&#39;)" onmouseout="removeBg(&#39;left&#39;)"></div>
+                                    <div id="boat3" class="ui-boat-box-center"></div>
+                                    <div id="boat4" class="ui-boat-box-right" onmouseover="addBg(&#39;right&#39;)" onmouseout="removeBg(&#39;right&#39;)"></div>
+                                    <div id="boat5" class="ui-boat-box-down" onmouseover="addBg(&#39;down&#39;)" onmouseout="removeBg(&#39;down&#39;)"></div>
+                                </div>
+                            </div>
+                            <div class="fn-clear">
+                                <a href="javascript:;" id="b_ctrlmenu" t="opr_ptz.MenuOpen" class="ui-button fn-width42 fn-left fn-marr1">Entrar</a>
+                                <a href="javascript:;" id="b_ctrlmenu1" t="opr_ptz.LampWaterClear OFF" class="ui-button fn-width42 fn-left fn-marr1">Sair</a>
+                                <a href="javascript:;" id="b_enter" t="com_button.comok" class="ui-button fn-width42 fn-left fn-marr1">Salvar</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="yt22" class="pre-right-bar">
+                        <a id="ayt22" class="pre-right-bar-item pre-right-bar-item-up Bydemes-top-bar" href="javascript:;">
+                            <i class="pre-right-bar-icon"></i>
+                        </a>
+                    </div>
+                </div>
+                <!--图像调节-->
+                <div id="yt3" class="pre-ptz">
+                    <div class="pre-right-title" id="taba">
+                        <a id="taba1" t="com_menu.Img Config" class="pre-right-title-item pre-right-title-item-current Bydemes-ptz" href="javascript:;" style="white-space: nowrap;">Imagem</a>
+                        <a id="taba2" t="conf_alm.output" class="pre-right-title-item fn-marr0 Bydemes-ptz-grey" href="javascript:;">Saída</a>
+                    </div>
+                    <div id="yt3t1" class="pre-right-box fn-clear fn-border-bottom-radius">
+                        <div id="yt3t1a">
+                            <div class="ui-slider fn-clear fn-padt10">
+                                <i class="ui-slider-icon-light" t="title::conf_cam.Brightness" title="Brilho"></i>
+                                <a class="ui-slider-less" href="javascript:;" onclick="gslda.set(gca-1)"></a>
+                                <div class="ui-slider-container fn-width65" id="saa">
+                                    <div class="ui-slider-sax" id="ska" style="position: relative; left: 0px;"></div>
+                                </div>
+                                <a class="ui-slider-more" href="javascript:;" onclick="gslda.set(gca+1)"></a>
+                            </div>
+                            <div class="ui-slider fn-clear fn-mart10">
+                                <i class="ui-slider-icon-contrast" t="title::conf_cam.Contrast" title="Contraste"></i>
+                                <a class="ui-slider-less" href="javascript:;" onclick="gsldb.set(gcb-1)"></a>
+                                <div class="ui-slider-container fn-width65" id="sab">
+                                    <div class="ui-slider-sax" id="skb" style="position: relative; left: 0px;"></div>
+                                </div>
+                                <a class="ui-slider-more" href="javascript:;" onclick="gsldb.set(gcb+1)"></a>
+                            </div>
+                            <div class="ui-slider fn-clear  fn-mart10">
+                                <i class="ui-slider-icon-saturation" t="title::conf_cam.Saturation" title="Saturação"></i>
+                                <a class="ui-slider-less" href="javascript:;" onclick="gsldc.set(gcc-1)"></a>
+                                <div class="ui-slider-container fn-width65" id="sac">
+                                    <div class="ui-slider-sax" id="skc" style="position: relative; left: 0px;"></div>
+                                </div>
+                                <a class="ui-slider-more" href="javascript:;" onclick="gsldc.set(gcc+1)"></a>
+                            </div>
+                            <div class="ui-slider fn-clear  fn-mart10" id="pre_hueSet">
+                                <i class="ui-slider-icon-chroma" t="title::conf_cam.Hue" title="Matiz"></i>
+                                <a class="ui-slider-less" href="javascript:;" onclick="gsldd.set(gcd-1)"></a>
+                                <div class="ui-slider-container fn-width65" id="sad">
+                                    <div class="ui-slider-sax" id="skd" style="position: relative; left: 0px;"></div>
+                                </div>
+                                <a class="ui-slider-more" href="javascript:;" onclick="gsldd.set(gcd+1)"></a>
+                            </div>
+							
+							<div id="divposition" class="ui-slider fn-clear  fn-mart10" style="display: none;">
+                                <i class="ui-slider-icon-set-position" t="title::conf_img.videoposition" title="Posição do Vídeo"></i>
+                                <a class="ui-slider-less" href="javascript:;" id="eqless"></a>
+                                <div class="ui-slider-container fn-width65" id="eqp">
+                                    <div class="ui-slider-sax" id="eqm"></div>
+                                </div>
+                                <a class="ui-slider-more" href="javascript:;" id="eqmore"></a>
+                            </div>
+
+                        </div>
+                        <div class="ui-button-box fn-textcenter fn-padt10">
+                            <a t="com_button.reset" class="ui-button fn-width90" href="javascript:;" onclick="txreset(64);">Padrão</a>
+                            <a id="ars" t="conf_title.ResetEQ" class="ui-button fn-width90" href="javascript:;" style="display: none;margin-top: 5px">Reset EQ</a>
+                        </div>
+                    </div>
+                    <div id="yt3t2" class="pre-right-box fn-clear fn-border-bottom-radius" style="display:none;">
+                        <div class="pre-alarm-tit">
+                            <label t="conf_alarm.AlarmChannels">Canal</label>
+                            <a class="refresh_icon" t="title::com_button.comrefresh" href="javascript:;" onclick="refreshAlarmChn()" title="Atualizar"></a>
+                        </div>
+                        <div id="alarmChn" class="pre-alarm-btn"></div>
+                        <div id="alarmBtn" class="pre-alarm-fre"></div>
+                    </div>
+                </div>
+            </div>
+            <!--CENTER-CONTENT-->
+            <div id="mbb" class="pre_center">
+                <div id="pla" class="pre-center-con">
+                    <div class="pre-center-video" id="prew_video_control">
+                        <div class="ui-video-iconbar">
+                            <a href="javascript:;" class="ui-video-icon" id="prew_video_quality">
+                                <span class="ui-video-icon-hd"></span>
+                            </a>
+                            <div id="prew_olay1" class="ui-videoicon-list" style="display:none;">
+                                <a id="highQlt" t="opr_ocx.High Picture Quality" href="javascript:;">Alta qualidade</a>
+                                <a id="lowQlt" t="opr_ocx.Low Picture Quality" href="javascript:;" class="ui-videoicon-list-current">Baixa qualidade</a>
+                            </div>
+                        </div>
+                        <div class="ui-video-iconbar">
+                            <a href="javascript:;" class="ui-video-icon" id="prew_video_fluency">
+                                <span class="ui-video-icon-quality"></span>
+                            </a>
+                            <div id="prew_olay2" class="ui-videoicon-list" style="display:none;white-space:nowrap;width:920px">
+                                <a t="opr_ocx.Fluency lv3" href="javascript:;">Alta Baixa fluência</a>
+                                <a t="opr_ocx.Fluency lv2" href="javascript:;">Média Baixa fluência</a>
+                                <a t="opr_ocx.Fluency lv1" href="javascript:;">Baixa fluência</a>
+                                <a t="opr_ocx.Middle Level" href="javascript:;" class="ui-videoicon-list-current">Padrão</a>
+                                <a t="opr_ocx.Real Time lv1" href="javascript:;">Ruim</a>
+                                <a t="opr_ocx.Real Time lv2" href="javascript:;">Médio</a>
+                                <a t="opr_ocx.Real Time lv3" href="javascript:;">Bom</a>
+                            </div>
+                        </div>
+                        <div class="ui-video-iconbar">
+                            <a href="javascript:;" class="ui-video-icon" id="prew_video_fullScreen">
+                                <span class="ui-video-icon-full"></span>
+                            </a>
+                        </div>
+                        <div class="ui-video-iconbar" style="display:none">
+                            <a href="javascript:;" class="ui-video-icon" id="Vertical_Sync">
+                                <span class="ui-video-icon-vertical" id="vertical_control"></span>
+                            </a>
+                        </div>
+                        <div class="ui-video-iconbar">
+                            <a href="javascript:;" class="ui-video-icon" id="prew_video_screen1">
+                                <span class="ui-video-icon-screen1"></span>
+                            </a>
+                            <div id="prew_scrn1" class="ui-videoicon-list" style="display:none;">
+                                <a href="javascript:;">1</a>
+                                <a href="javascript:;">2</a>
+                                <a href="javascript:;" class="ui-videoicon-list-current">3</a>
+                                <a href="javascript:;">4</a>
+                                <a href="javascript:;">5</a>
+                                <a href="javascript:;">6</a>
+                                <a href="javascript:;">7</a>
+                                <a href="javascript:;">8</a>
+                                <a href="javascript:;">9</a>
+                                <a href="javascript:;">10</a>
+                                <a href="javascript:;">11</a>
+                                <a href="javascript:;">12</a>
+                                <a href="javascript:;">13</a>
+                                <a href="javascript:;">14</a>
+                                <a href="javascript:;">15</a>
+                                <a href="javascript:;">16</a>
+                                <a href="javascript:;">17</a>
+                                <a href="javascript:;">18</a>
+                                <a href="javascript:;">19</a>
+                                <a href="javascript:;">20</a>
+                                <a href="javascript:;">21</a>
+                                <a href="javascript:;">22</a>
+                                <a href="javascript:;">23</a>
+                                <a href="javascript:;">24</a>
+                                <a href="javascript:;">25</a>
+                                <a href="javascript:;">26</a>
+                                <a href="javascript:;">27</a>
+                                <a href="javascript:;">28</a>
+                                <a href="javascript:;">29</a>
+                                <a href="javascript:;">30</a>
+                                <a href="javascript:;">31</a>
+                                <a href="javascript:;">32</a>
+                            </div>
+                        </div>
+                        <div class="ui-video-iconbar">
+                            <a href="javascript:;" class="ui-video-icon" id="prew_video_screen4">
+                                <span class="ui-video-icon-screen4"></span>
+                            </a>
+                            <div id="prew_scrn4" class="ui-videoicon-list" style="display:none;">
+                                <a href="javascript:;">1-4</a>
+                                <a href="javascript:;">5-8</a>
+                                <a href="javascript:;" class="ui-videoicon-list-current">9-12</a>
+                                <a href="javascript:;">13-16</a>
+                            </div>
+                        </div>
+                        <div class="ui-video-iconbar">
+                            <a href="javascript:;" class="ui-video-icon" id="prew_video_screen6">
+                                <span class="ui-video-icon-screen6"></span>
+                            </a>
+                            <div id="prew_scrn6" class="ui-videoicon-list" style="display:none;">
+                                <a href="javascript:;">1-6</a>
+                                <a href="javascript:;" class="ui-videoicon-list-current">7-12</a>
+                                <a href="javascript:;">13-18</a>
+                                <a href="javascript:;">19-24</a>
+                            </div>
+                        </div>
+                        <div class="ui-video-iconbar">
+                            <a href="javascript:;" class="ui-video-icon" id="prew_video_screen8">
+                                <span class="ui-video-icon-screen8"></span>
+                            </a>
+                            <div id="prew_scrn8" class="ui-videoicon-list" style="display:none;">
+                                <a href="javascript:;">1-8</a>
+                                <a href="javascript:;">9-16</a>
+                                <a href="javascript:;" class="ui-videoicon-list-current">17-24</a>
+                                <a href="javascript:;">25-32</a>
+                            </div>
+                        </div>
+                        <div class="ui-video-iconbar">
+                            <a href="javascript:;" class="ui-video-icon" id="prew_video_screen9">
+                                <span class="ui-video-icon-screen9"></span>
+                            </a>
+                            <div id="prew_scrn9" class="ui-videoicon-list" style="display:none;">
+                                <a href="javascript:;">1-9</a>
+                                <a href="javascript:;">10-18</a>
+                                <a href="javascript:;" class="ui-videoicon-list-current">19-27</a>
+                                <a href="javascript:;">24-32</a>
+                            </div>
+                        </div>
+                        <div class="ui-video-iconbar">
+                            <a href="javascript:;" class="ui-video-icon" id="prew_video_screen13">
+                                <span class="ui-video-icon-screen12"></span>
+                            </a>
+                            <div id="prew_scrn13" class="ui-videoicon-list" style="display:none;">
+                                <a href="javascript:;">1-13</a>
+                                <a href="javascript:;" class="ui-videoicon-list-current">14-26</a>
+                                <a href="javascript:;">20-32</a>
+                            </div>
+                        </div>
+                        <div class="ui-video-iconbar">
+                            <a href="javascript:;" class="ui-video-icon" id="prew_video_screen16">
+                                <span class="ui-video-icon-screen16"></span>
+                            </a>
+                            <div id="prew_scrn16" class="ui-videoicon-list" style="display:none;">
+                                <a href="javascript:;">1-16</a>
+                                <a href="javascript:;" class="ui-videoicon-list-current">17-32</a>
+                            </div>
+                        </div>
+                        <div class="ui-video-iconbar">
+                            <a href="javascript:;" class="ui-video-icon" id="prew_video_screen20">
+                                <span class="ui-video-icon-screen20"></span>
+                            </a>
+                            <div id="prew_scrn20" class="ui-videoicon-list" style="display:none;">
+                                <a href="javascript:;">1-20</a>
+                                <a href="javascript:;" class="ui-videoicon-list-current">13-32</a>
+                            </div>
+                        </div>
+                        <div class="ui-video-iconbar">
+                            <a href="javascript:;" class="ui-video-icon" id="prew_video_screen25">
+                                <span class="ui-video-icon-screen25"></span>
+                            </a>
+                            <div id="prew_scrn25" class="ui-videoicon-list" style="display:none;">
+                                <a href="javascript:;" class="ui-videoicon-list-current">1-25</a>
+                                <a href="javascript:;">8-32</a>
+                            </div>
+                        </div>
+                        <div class="ui-video-iconbar">
+                            <a href="javascript:;" class="ui-video-icon" id="prew_video_screen36">
+                                <span class="ui-video-icon-screen36"></span>
+                            </a>
+                            <div id="prew_scrn36" class="ui-videoicon-list" style="display:none;">
+                                <a href="javascript:;" class="ui-videoicon-list-current">1-36</a>
+                            </div>
+                        </div>
+                        <!--预览右侧新增-->
+						<div class="pre-center-window" id="preScrnApart" style="display:none;">
+						    <div class="pre-windowbox-left">
+						        <a href="javascript:;" class="pre-windowbox-icon-one"></a>
+						    </div>
+						    <div class="pre-windowbox-center">
+						        <a href="javascript:;" class="ui-video-icon-screen1 fn-left" id="prew_window_apart1"> </a>
+						        <div id="prew_winScrn1" class="ui-videoicon-listEx" style="display:none;">
+						            
+						        </div>
+						
+						        <a href="javascript:;" class="ui-video-icon-screen4 fn-left" id="prew_window_apart4"> </a>
+						        <div id="prew_winScrn4" class="ui-videoicon-listEx" style="display:none;">
+
+						        </div>
+						
+						        <a href="javascript:;" class="ui-video-icon-screen6 fn-left" id="prew_window_apart6"></a>
+						        <div id="prew_winScrn6" class="ui-videoicon-listEx" style="display:none;">
+
+						        </div>
+						
+						        <a href="javascript:;" class="ui-video-icon-screen8 fn-left" id="prew_window_apart8"></a> 
+						        <div id="prew_winScrn8" class="ui-videoicon-listEx" style="display:none;">
+
+						        </div>
+						
+						        <a href="javascript:;" class="ui-video-icon-screen9 fn-left" id="prew_window_apart9"></a>
+						        <div id="prew_winScrn9" class="ui-videoicon-listEx" style="display:none;">
+
+						        </div>
+						
+						        <a href="javascript:;" class="ui-video-icon-screen12 fn-left" id="prew_window_apart13"></a>
+						        <div id="prew_winScrn13" class="ui-videoicon-listEx" style="display:none;">
+
+						        </div>
+						
+						        <a href="javascript:;" class="ui-video-icon-screen16 fn-left" id="prew_window_apart16"></a> 
+						        <div id="prew_winScrn16" class="ui-videoicon-listEx" style="display:none;">
+						            <a href="javascript:;" class="ui-videoicon-list-current">17-32</a>
+						            <a href="javascript:;">1-16</a>
+						        </div>
+						
+						        <a href="javascript:;" class="ui-video-icon-screen20 fn-left" id="prew_window_apart20"></a>
+						        <div id="prew_winScrn20" class="ui-videoicon-listEx" style="display:none;">
+						            <a href="javascript:;" class="ui-videoicon-list-current">13-32</a>
+						            <a href="javascript:;">1-20</a>
+						        </div>
+						
+						        <a href="javascript:;" class="ui-video-icon-screen25 fn-left" id="prew_window_apart25"></a>
+						        <div id="prew_winScrn25" class="ui-videoicon-listEx" style="display:none;">
+						            <a href="javascript:;">8-32</a>
+						            <a href="javascript:;" class="ui-videoicon-list-current">1-25</a>
+						        </div>
+						
+						        <a href="javascript:;" class="ui-video-icon-screen36 fn-left" id="prew_window_apart36"></a>
+						        <div id="prew_winScrn36" class="ui-videoicon-listEx" style="display:none;">
+						            <a href="javascript:;" class="ui-videoicon-list-current">1-36</a>
+						        </div>
+						        </div>
+						    <div class="pre-windowbox-right"></div>
+						</div>
+                    </div>
+                </div>
+                <div id="plc" class="pre-playbackbar">
+                    <div id="pbh" class="pre-playbackbar" style="z-index:15;"></div>
+                    <div id="pb" class="pre-playback-coverbottom">
+                        <div class="ui-slider fn-left fn-marr10 fn-mart5">
+                            <div id="sa" class="ui-slider-container fn-width300">
+                                <div id="sk" class="ui-slider-sax" style="position: relative; left: 0px;"></div>
+                            </div>
+                        </div>
+                        <div id="pc" class="pre-playback-right">
+                            <a t="title::opr_play.Play" href="javascript:;" onclick="ocx.PlayLocalPlay()" title="Reproduzir">
+                                <i class="playback-icon-play"></i>
+                            </a>
+                            <a t="title::opr_play.Pause" href="javascript:;" onclick="ocx.PauseLocalPlay()" title="Pausa">
+                                <i class="playback-icon-pause"></i>
+                            </a>
+                            <a t="title::opr_play.Stop" href="javascript:;" onclick="ocx.StopLocalPlay()" title="Parar">
+                                <i class="playback-icon-stop"></i>   
+                            </a>
+                            <a t="title::opr_play.Slow" href="javascript:;" onclick="ocx.SlowLocalPlay()" title="Avanço lento">
+                                <i class="playback-icon-slow"></i>
+                            </a>
+                            <a t="title::opr_play.Fast" href="javascript:;" onclick="ocx.FastLocalPlay()" title="Avanço rápido">
+                                <i class="playback-icon-fast"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--BOTTOM-CONTENT-->
+        <div id="mc" class="pre-bottom">
+            <script type="text/javascript" src="./ft.js"></script>Copyright 2016,All Rights Reserved.
+        </div>
+    </div>
+<script>
+    parent.showLoading(false);
+    parent.onPageLoaded();
+    if(gdomready != 1)
+    {
+        onPageDomReady();
+    }
+</script>
+
+</body></html>

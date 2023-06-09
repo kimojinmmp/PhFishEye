@@ -14,6 +14,8 @@ import io.renren.modules.sys.form.SysLoginForm;
 import io.renren.modules.sys.service.SysCaptchaService;
 import io.renren.modules.sys.service.SysUserService;
 import io.renren.modules.sys.service.SysUserTokenService;
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import org.apache.commons.io.IOUtils;
 import org.apache.shiro.crypto.hash.Sha256Hash;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +37,7 @@ import java.util.Map;
  * @author Mark sunlightcs@gmail.com
  */
 @RestController
+@Api
 public class SysLoginController extends AbstractController {
 	@Autowired
 	private SysUserService sysUserService;
@@ -62,12 +65,13 @@ public class SysLoginController extends AbstractController {
 	/**
 	 * 登录
 	 */
+	@ApiOperation("系统登录")
 	@PostMapping("/sys/login")
 	public Map<String, Object> login(@RequestBody SysLoginForm form)throws IOException {
-		boolean captcha = sysCaptchaService.validate(form.getUuid(), form.getCaptcha());
-		if(!captcha){
-			return R.error("验证码不正确");
-		}
+//		boolean captcha = sysCaptchaService.validate(form.getUuid(), form.getCaptcha());
+//		if(!captcha){
+//			return R.error("验证码不正确");
+//		}
 
 		//用户信息
 		SysUserEntity user = sysUserService.queryByUserName(form.getUsername());
@@ -96,5 +100,5 @@ public class SysLoginController extends AbstractController {
 		sysUserTokenService.logout(getUserId());
 		return R.ok();
 	}
-	
+
 }

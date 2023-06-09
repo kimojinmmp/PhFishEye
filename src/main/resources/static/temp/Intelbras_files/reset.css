@@ -1,0 +1,64 @@
+/*
+ * 文件描述:  CSS MODULE
+ * 对应功能页：所有页面
+ * 期望执行浏览器：所有浏览器
+ * 修改记录: By gao_shanmei 2013-05-10.
+ */
+@charset "utf-8";
+/* CSS Document */
+/*reset*/
+/* 添加让用户可以自定义字体 */
+html {
+    -webkit-text-size-adjust: none;
+    -ms-text-size-adjust: 100%;
+}
+body,dl,dt,dd,ul,ol,li,pre,form,fieldset,input,p,th,td {
+    padding: 0;
+    margin: 0;
+    font-weight: 400;
+}
+h1,h2,h3,h4,h4,h5,div { 
+    margin: 0;
+    padding: 0;
+}
+body {
+    padding: 0;
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif,"SimSun";
+    font-size: 12px;
+}
+pre {
+	font-family: Arial, Helvetica, sans-serif,"SimSun";
+    font-size: 12px;
+}
+input[type="checkbox"],input[type="radio"]{
+    blr: expression(this.onFocus = this.blur());
+}
+table {
+    border-collapse: collapse;
+}
+img {
+    border: 0;
+}
+ul,li {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    outline: none;
+    blr: expression(this.onFocus = this.blur());
+}
+object {
+    margin: 0;
+}
+html.body {
+    overflow: auto;
+}
+em,i{
+    font-style: normal;
+}
+h1 {
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 24px;
+}

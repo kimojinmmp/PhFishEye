@@ -1,0 +1,683 @@
+/*
+ * 文件描述:  CSS Document 控制所有颜色和背景
+ * 对应功能页：all  htm
+ * 期望执行浏览器：所有浏览器
+ * 修改记录: By gao_shanmei 2013-05-07.
+ */
+@charset "utf-8";
+/*reset*/
+html,body {sub_logo
+    background: #373737;
+    color: #373737;
+}
+a {
+    color: #373737;
+}
+
+/*ui-module UI模块*/
+/*background-image*/
+.ui-button,
+.ui-button-special,
+.ui-slider-container,
+.set-item:hover,
+.set-item-current,
+.ui-button-bg,
+.ui-slider-container-current,
+.pre-right-bar-item,
+.pre-playbackbar,
+.pre-playback-coverbottom,
+.pre-windowbox-center {
+    background-image: url(../image/allbg.png?version=2.210);    
+}
+
+.ui-tiptext-icon,
+.ui-slider-sax,
+.ui-slider-less,.ui-reset,.ui-lock,
+.ui-slider-more,
+.ui-playback-slider-sax,
+.ui-channel-item,
+[class^= "ui-slider-icon-"],
+[class^= "ui-button-icon-"],
+[class^= "ui-button-playback-icon-"],
+[class^= "ui-video-icon-"],
+[class^= "ui-table-icon-"],
+[class^= "ui-set-icon-"],
+[class^= "ui-page-icon-"],
+[class^= "wifi-sign-icon"],
+[class^= "ui-ptz-icon-"],
+[class^= "ui-special-calendar-icon-"],
+[class^= "play-bottom-icon-"],
+[class^="playback-icon-"],
+.download-plugin-icon,
+.ui-video-wrap-current .ui-video-wrap-icon,
+.set-menu-icon,
+.set-item-icon,
+.ui-dialog-icon,
+.ui-tip-icon,
+.ui-dialog-surebox-icon,
+.playback-button-icon-search,
+.playback-dates-icon-down,
+.pre-channel-icon,
+.pre-channel-sound,
+.pre-channel-nosound,
+.pre-right-bar-icon,
+[class^="pre-windowbox-icon-"],
+.pre_channel_downicon,
+.playback_video_locked{
+    background-image: url(../image/icons.png?version=2.210);
+}
+.ui-channel-item,
+.main-nav-item,
+.ui-video-icon,
+.ui-ptz-icon,
+.ui-ptz-specail-icon,
+.ui-ptz-specail-icon-current,
+.play-bottom-iconbg,
+.play-bottom-bigicon,
+.playback-iconbg-left,
+.playback-iconbg-right,
+.ui-set-control-icon,
+.ui-calendar-everydays li a,
+.ui-voice-slider,
+.pre-playback-right a,
+.pre-windowbox-left,
+.pre-windowbox-right {
+    background-image: url(../image/pic.png?version=2.210);
+}
+.main-nav-alarm {
+    background-image: url(../image/alert.gif?version=2.210);
+}
+[class^= "main-top-icon-"],
+.ui-tab-help a {
+    background-image: url(../image/btnbar.png?version=2.210);  
+}
+
+.videodetect-motionFigure-wrap {
+    background-image: url(../image/motion_figure.png?version=2.210);
+    border: 1px solid #888;
+}
+
+/*
+ * 模块名称:  button module
+ * 模块描述：ui-button适用于一般按钮；
+ *                     ui-button-special适于带ICON的按钮
+ */
+.ui-button,
+.ui-button-special {
+     border-color: #464646;
+}
+.ui-button:hover,
+.ui-button-special:hover,
+.ui-button-current,
+.ui-button-current:hover,
+.ui-button-special-current,
+.ui-button-special-current:hover {
+    border-color: #000;
+    color: #000;
+}
+.ui-button-disabled,
+.ui-button-disabled:hover,
+.ui-button-special-disabled,
+.ui-button-special-disabled:hover{
+    border-color: #464646;
+    text-shadow: #FFF 1px 1px 0;
+    color: #777;
+}
+ /*
+ * 模块名称:  input module
+ * 模块描述：ui-input适用于一般输入框；
+ *                     ui-textarea适应于输入区域；
+ *                     ui-input-time适应于时间年月输入；
+ *                     ui-input-ip适应于IP/MAC输入；
+ */
+.ui-input,
+.ui-textarea,
+.ui-input-box {
+     background: #FAFAFA;
+     border:1px #A5A5A5 solid;
+ }
+ .ui-input-box span {
+    color: #373737;
+ }
+ .ui-input:hover,
+.ui-textarea:hover,
+.ui-input-hover {
+    background: #FFF;
+    border: 1px #A6A6A6 solid;
+    border-top-color: #808080;
+}
+
+.ui-input:focus,
+.ui-textarea:focus,
+.ui-input-focus {
+    border: 1px #07F solid;
+    outline: 1px #8cddff solid;
+    color: #595959;
+}
+.ui-input[disabled],
+.ui-textarea[disabled] {
+    border: 1px #ccc solid;
+    background: #F2F2F2;
+}
+
+ /* 模块描述: table module*/
+.ui-table {
+    background: #858585;
+    border: 1px #4F4F4F solid;
+}
+.ui-special-table {
+    border: 2px solid #C8C8C8;
+}
+.ui-table-container,
+.ui-special-table {
+    background: #D5D5D5;
+}
+.ui-table table,
+.ui-table-container tr,
+.ui-special-table table,
+.ui-special-table tr {
+    background: #D5D5D5;
+}
+.ui-table-header {
+    background: #858585;
+}
+.ui-table-header tr,
+.ui-special-table tr th {
+    background: #858585;
+    color: #FFF;   
+}
+.ui-table-container tr:nth-child(odd),
+.ui-special-table tr:nth-child(odd){
+    background: #F3F3F3;
+}
+.ui-table-container tr.ui-table-tr-odd,
+.ui-special-table tr.ui-special-table-tr-odd,
+.ui-table-container tr.J_tr1{
+    background: #F3F3F3;
+}
+
+.ui-table-container tr:hover {
+    background: #F7E084;   
+}
+.ui-table-container tr.ui-table-tr-current,
+.ui-special-table tr.ui-table-tr-current {
+    background: #F1CF47;   
+}
+
+ /* 模块描述: button tips module*/
+  .ui-tip-container {
+    border: 1px #F89712 solid;
+    background: #FFEA95;
+    color: #010101;
+  }
+/*
+ * 模块名称:  ui-form
+ * 模块描述：
+ */
+  .ui-title {
+    background: #C2C2C2;
+  }
+  .ui-form-tip {
+    color: #FF0000;
+}
+
+
+  /*
+ * 模块名称:  channel module
+ * 模块描述:使用于DVR各通道及IPC报警通道等
+ */
+.ui-channel-item:hover,
+.ui-channel-item-current {
+     color: #000; 
+}
+/*ui-dialog*/
+.ui-dialog {
+    border: 2px solid #373737;
+    background: #D5D5D5;
+}
+.ui-dialog-title {
+    background-color: #C8C8C8;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#E8E8E8), to(#B9B7B8));
+    background-image: -webkit-linear-gradient(top, #E8E8E8, #B9B7B8);
+    background-image: -o-linear-gradient(top, #E8E8E8, #B9B7B8);
+    background-image: -moz-linear-gradient(top, #E8E8E8, #B9B7B8);
+    background-image: linear-gradient(to bottom, #E8E8E8, #B9B7B8);
+    background-repeat: repeat-x;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#E8E8E8', endColorstr='#B9B7B8', GradientType=0);
+    /*filter: progid:dximagetransform.microsoft.gradient(enabled=false);*/
+    border-bottom: 1px solid #B3B1B2;
+}
+/* ui-boat */
+.ui-boat-intel-box-center span {
+    color: #111;
+}
+/* ui-page */
+.ui-page-view span {
+    color: #FFF;
+}
+.ui-set-page .ui-page-view span {
+    color: #373737;    
+}
+.ui-page-input {
+    color: #373737;
+}
+
+/*ui-timeplan 计划时间表*/
+.ui-timeplan-general{ background: #00FF00;}
+.ui-timeplan-motion{ background: #FFFF00;}
+.ui-timeplan-alarm{ background: #FF0000;}
+
+/*ui-timesection 时间段设置*/
+.ui-timesection {
+    border: 1px solid #ABABAB;
+    background: #E0E0E0;
+}
+
+/*ui-calendar 日历*/
+.ui-calendar {
+    border: 2px solid #4F4F4F;
+    background: #CBCBCB;
+}
+.ui-calendar-head h1 {
+    color: #FFF; 
+}
+.ui-calendar-everydays li a.ui-calendar-today {
+    color: #000;     
+}
+.ui-calendar-everydays li a.ui-calendar-day-disabled {
+    color: #999;
+}
+/*ui-special-calendar 日历*/
+.ui-special-calendar-date-input {
+    border: 1px solid #AFAFAF;
+}
+.ui-special-calendar-date-btn,
+.ui-special-calendar-day a,
+.playback-button {
+    background: #282828;
+    color: #F3F3F3;
+    font-weight: normal;
+}
+.ui-special-calendar-date-btn:hover,
+.ui-special-calendar-day a:hover,
+.playback-button:hover {
+    background: #FDC115;
+    color: #000;
+}
+.ui-special-calendar-title li {
+    color: #FFF;
+}
+
+.ui-special-calendar-day li a.ui-special-calendar-day-select {
+    background: #FDC017;
+    color: #000;
+}
+.ui-special-calendar-day li a.ui-special-calendar-day-havevideo {    
+    background: #3199DC;
+    color: #000;
+}
+.ui-special-calendar-day li a.ui-special-calendar-day-both {    
+    background: #3AC01A;
+    color: #000;
+} 
+
+/*ui-timeplan 计划时间表*/
+.ui-timeplan-canvas {
+    border-right:1px #9C9C9C solid;
+}
+
+/*ui-receiver*/
+.ui-receiver-box {
+    border: 1px #A6A6A6 solid;
+    background: #F2F2F2;
+}
+.ui-receiver-address:hover,
+.ui-receiver-item:hover {
+    background: #F7E084;
+}
+.ui-receiver-address-current,
+.ui-receiver-address-current:hover,
+.ui-receiver-item-current,
+.ui-receiver-item-current:hover {
+    background: #F1CF47;
+}
+/*ui-playback-slider*/
+.ui-playback-sliderbg {
+    background: #5B5B5B;
+}
+.ui-playback-sliderbg-current {
+    background: #E5A21C;
+}
+
+
+/* fn-linear 渐变*/
+/* 图像调整/聚焦缩放标题背景 */
+.fn-linear {
+    background-color: #4E4E4E;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#5C5C5C), to(#4E4E4E));
+    background-image: -webkit-linear-gradient(top, #5C5C5C, #4E4E4E);
+    background-image: -o-linear-gradient(top, #5C5C5C, #4E4E4E);
+    background-image: -moz-linear-gradient(top, #5C5C5C, #4E4E4E);
+    background-image: linear-gradient(to bottom, #5C5C5C, #4E4E4E);
+    background-repeat: repeat-x;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#5C5C5C', endColorstr='#4E4E4E', GradientType=0);
+    /*filter: progid:dximagetransform.microsoft.gradient(enabled=false);*/
+}
+/* fn-color */
+.fn-color-red {
+    color: red;
+}
+.fn-color-white {
+    color: white;
+}
+/* fn-line 分割线*/
+.fn-horizontal-line{
+    background-image: url(../image/horizonline.png?version=2.210);
+}
+.fn-vertical-line {
+    background-image: url(../image/verticalline.png?version=2.210);
+}
+
+/*PAGE*/
+
+.login-container {
+    background:  #373737 url(../image/bg.png?version=2.210) 0px 50px repeat-x;
+}
+.login-content { 
+    background: url(../image/lgbg.png?version=2.210) no-repeat;
+}
+.login-logo {
+    background: url(../image/loginlogo.jpg?version=2.210) bottom no-repeat;
+}
+
+.download-plugin a {
+    color: #FFF;
+}
+.download-plugin a:hover {
+    color: #FFED21
+}
+/*MAIN*/
+.main-logo {
+    background: url(../image/logo.jpg?version=2.210) no-repeat;
+}
+.main-head,
+.main-ptz-top,
+.main-ptz-advance,
+.main-image-adjust,
+.main-img-container,
+.main-focus-container {
+    background: #5C5C5C;
+}
+.ui-video-bar {
+    background: #252525;
+}
+.main-ptz-advance-nav {
+    background: #4E4E4E;
+}
+.main-ptz-advance-nav li {
+    color: #B2B2B2;
+}
+.main-ptz-advance-nav .main-ptz-advance-nav-current {
+    background: #5C5C5C;
+    color: #FFF;
+}
+.main-img,
+.main-focus,
+.main-img-title,
+.main-focus-title,
+.ui-video-wrap-item {
+    color: #FFF;
+}
+.main-video-wrap-item:hover {
+    color: #FFED21;
+}
+.main-focus-load {
+    background:  #FFF;
+}
+.main-top {
+    color: #FFF;
+}
+/*PLAYBACK*/
+.playback-right-container {
+    background: #5C5C5C;
+    color: #FFF;
+}
+
+/*Preview*/
+.pre-bottom {
+    background: #5C5C5C;
+    color: #FFF;
+}
+.pre-left-channel,
+.pre-left-control {
+    background: #5C5C5C;
+}
+.pre-left-channel-slider {
+    background: #3C3C3C;   
+}
+.pre-left-channel-sax {
+    background: #A8A8A8;    
+}
+.pre-channel-item {
+    color: #FFF;
+}
+div.pre-channel-item:hover,
+.pre-channel-item-current {
+    color: #000;
+    border: 1px solid #000;
+    background-color: #FFB80F;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FFE941), to(#FFB80F));
+    background-image: -webkit-linear-gradient(top, #FFE941, #FFB80F);
+    background-image: -o-linear-gradient(top, #FFE941, #FFB80F);
+    background-image: -moz-linear-gradient(top, #FFE941, #FFB80F);
+    background-image: linear-gradient(to bottom, #FFE941, #FFB80F);
+    background-repeat: repeat-x;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#FFE941', endColorstr='#FFB80F', GradientType=0);
+}
+.pre-channel-encode {
+    display: block;
+    width: 100%;
+    height: 18px;
+    border: 1px solid #464646;
+    border-top: 0 none;
+    background-color: #FBFBFB;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FEFEFE), to(#E5E5E5));
+    background-image: -webkit-linear-gradient(top, #FEFEFE, #E5E5E5);
+    background-image: -o-linear-gradient(top, #FEFEFE, #E5E5E5);
+    background-image: -moz-linear-gradient(top, #FEFEFE, #E5E5E5);
+    background-image: linear-gradient(to bottom, #FEFEFE, #E5E5E5);
+    background-repeat: repeat-x;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#FEFEFE', endColorstr='#E5E5E5', GradientType=0);
+}
+.pre-channel-encode:hover,
+.pre-channel-encode-current {
+    background-color: #FFE86E;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#FFE86E), to(#FDD32E));
+    background-image: -webkit-linear-gradient(top, #FFE86E, #FDD32E);
+    background-image: -o-linear-gradient(top, #FFE86E, #FDD32E);
+    background-image: -moz-linear-gradient(top, #FFE86E, #FDD32E);
+    background-image: linear-gradient(to bottom, #FFE86E, #FDD32E);
+    background-repeat: repeat-x;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#FFE86E', endColorstr='#FDD32E', GradientType=0);    
+}
+.pre-channel-encode:hover .pre-channel-encode-text,
+.pre-channel-encode-current .pre-channel-encode-text,
+.pre-channel-encode-text {
+    color: #000;
+}
+.pre-lef-popup {
+    border: 1px solid #464646;
+    background: #F7F5F6;
+}
+
+.pre-lef-popup li a {
+    color: #333;
+}
+.pre-lef-popup li a:hover{
+    background: #CCC;
+}
+/*preview-right*/
+.pre-ptz {
+    background: #373737;
+}
+.pre-adv-ptz {
+    background: #5C5C5C;
+}
+.pre-ptz-step {
+    color: #FFF;
+}
+.pre-right-title {
+    background: #373737;
+    border-top: 10px solid #373737;
+}
+.pre-right-title-item {
+    background: #4E4E4E;
+    color: #EEEEEE;
+}
+
+.pre-right-title-item-current {
+    background: #5C5C5C;
+    color: #FFFFFF;
+}
+.pre-right-box {
+    background: #5C5C5C;
+    color: #FFFFFF;
+}
+/*preview-right*/
+.pre-center-video {
+    background: #252525;
+}
+
+
+/*PLAYBACK*/
+.playback-right-container {
+    background: #5C5C5C;
+    color: #FFF;
+}
+
+/*SET*/
+.set-content-box {
+    background: #D5D5D5;
+}
+.set-menu {
+    color: #E7E7E7;
+}
+.set-menu:hover {
+    color: #999;
+}
+.set-menu-current,
+.set-menu-current:hover { 
+    color: #999;
+}
+.set-item {
+    color: #FFF;
+}
+.set-item:hover,
+.set-item-current {
+    color: #333;
+}
+/*Camera*/
+.camera-video {
+    background: #000;
+}
+.camera-time-title {
+    background: #E5E4E4;
+    border: 1px solid #4F4F4F;
+}
+/*3g*/
+.3g-progressLine {
+    border: 1px solid #C5C5C5;
+    background: #FFF;
+}
+.3g-color-green{
+    background: #00FF00;
+}
+/*videodetect*/
+.videodetect-motionFigure-threshold {
+    background: #000;
+}
+.videodetect-motionFigure div {
+    background: #009900;
+}
+.videodetect-motionFigure div.motion { 
+    background: #ff0000;
+}
+
+/*PLAYBACK*/
+.ui-video-wrap-current label {
+    color: #FFE84D;
+}
+.playback-tip-color-selected {
+    background: #FDC017;    
+}
+.playback-tip-color-havevideo {
+    background: #3199DC;    
+}
+.playback-tip-color-both {
+    background: #3AC01A;    
+}
+.playback-button-disabled {
+    background: #4D4D4D;
+}
+.playback-dates-row0 {
+    background: #4E4E4E;
+}
+.playback-dates-row1 {
+    background: #5C5C5C;
+}
+
+.playback-dates-type-red {
+    background: #D51111;
+}
+.playback-dates-type-yellow {
+    background: #DAE613;
+}
+.playback-dates-type-green {
+    background: #42D017;
+}
+.playback-dates-type-blue {
+    background:#00FFF7;
+}
+.playback-pageview {
+    border-top: 1px solid #434343;
+}
+.playback-detail {
+    background: #434343;
+}
+.playback-iconbar {
+    border: 1px solid #282828;
+    background-color: #6F6F6F;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#6F6F6F), to(#434343));
+    background-image: -webkit-linear-gradient(top, #6F6F6F, #434343);
+    background-image: -o-linear-gradient(top, #6F6F6F, #434343);
+    background-image: -moz-linear-gradient(top, #6F6F6F, #434343);
+    background-image: linear-gradient(to bottom, #6F6F6F, #434343);
+    background-repeat: repeat-x;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#6F6F6F', endColorstr='#434343', GradientType=0);
+}
+.playback-iconbg {
+    border-top: 1px solid #3E3E3E;
+    border-bottom: 1px solid #2E2E2E;
+    background-color: #424242;
+    background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#424242), to(#333333));
+    background-image: -webkit-linear-gradient(top, #424242, #333333);
+    background-image: -o-linear-gradient(top, #424242, #333333);
+    background-image: -moz-linear-gradient(top, #424242, #333333);
+    background-image: linear-gradient(to bottom, #424242, #333333);
+    background-repeat: repeat-x;
+    filter: progid:dximagetransform.microsoft.gradient(startColorstr='#424242', endColorstr='#333333', GradientType=0);    
+}
+.playback-progress-grid {
+    border: 1px solid #000;
+    border-left: 0 none;
+    background: #565656;
+}
+.playback-timetip {
+    border: 1px solid #000;
+    background: #FFF;
+}
+
+/**table-tab-style**/
+
+.ui-form-item-subtab ul li{ background:#BFBFBF;}
+.ui-form-item-subtab ul li.J_current{ background:#494949; color:#FFF;}
